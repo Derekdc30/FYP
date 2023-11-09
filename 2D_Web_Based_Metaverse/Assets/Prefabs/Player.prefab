@@ -274,7 +274,7 @@ MonoBehaviour:
   GlobalObjectIdHash: 3690494049
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
-  ActiveSceneSynchronization: 0
+  ActiveSceneSynchronization: 1
   SceneMigrationSynchronization: 1
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
@@ -291,7 +291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 502936aa83903c8408f9d958dce765c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1
+  moveSpeed: 2.11
 --- !u!50 &-1531019040595166359
 Rigidbody2D:
   serializedVersion: 4
