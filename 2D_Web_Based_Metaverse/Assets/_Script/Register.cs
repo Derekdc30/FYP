@@ -43,27 +43,34 @@ public class Register : MonoBehaviour
         string username = usernameInput.GetComponent<TMP_InputField>().text;
         string password = passwordInput.GetComponent<TMP_InputField>().text;
         string re_password = Re_passwordInput.GetComponent<TMP_InputField>().text;
-        if(UserExists(username)){
-            Debug.Log("User Exist"); //action on user name already exist
+        if(string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(re_password)){
+            Debug.Log("Empty field"); //action on empty field
         }
         else{
-            if(password == re_password){
-                Debug.Log("Register success"); //action on successfully register
-                UserData newUser = new UserData
-                {
-                    username = username,
-                    password = password
-                };
-                Array.Resize(ref userDatabase.users, userDatabase.users.Length + 1);
-                userDatabase.users[userDatabase.users.Length - 1] = newUser;
-
-                // Save the updated user database to the JSON file
-                SaveUserDatabaseToJson();
+            if(UserExists(username)){
+                Debug.Log("User Exist"); //action on user name already exist
             }
             else{
-                Debug.Log("password not match"); //action on password not match
+                if(password == re_password){
+                    Debug.Log("Register success"); //action on successfully register
+                    UserData newUser = new UserData
+                    {
+                        username = username,
+                        password = password
+                    };
+                    Array.Resize(ref userDatabase.users, userDatabase.users.Length + 1);
+                    userDatabase.users[userDatabase.users.Length - 1] = newUser;
+
+                    // Save the updated user database to the JSON file
+                    SaveUserDatabaseToJson();
+                }
+                else{
+                    Debug.Log("password not match"); //action on password not match
+                }
             }
         }
+
+        
     }
     public bool UserExists(string UserName)
     {
