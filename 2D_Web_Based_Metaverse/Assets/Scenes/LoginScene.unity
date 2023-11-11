@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 285250826}
   - component: {fileID: 285250825}
   - component: {fileID: 285250824}
+  - component: {fileID: 285250828}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -228,6 +229,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &285250828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 285250823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9ca6bd39c7c9244e8fd2d094bd63f20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  usernameInput: {fileID: 1731221597}
+  passwordInput: {fileID: 1907386795}
+  loginButton: {fileID: 1861965222}
+  goToRegisterButton: {fileID: 809986243}
+  jsonFile: {fileID: 4900000, guid: 22d813e1091c8a94eb469fa330bb8330, type: 3}
 --- !u!1 &450993150
 GameObject:
   m_ObjectHideFlags: 0
@@ -450,8 +468,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -14}
-  m_SizeDelta: {x: -20, y: -13}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -20, y: -14}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &748135948
 MonoBehaviour:
