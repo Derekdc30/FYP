@@ -1,8 +1,8 @@
 # FYP - 2D Web-Based Metaverse
-- [Introduction](https://github.com/Derekdc30/FYP/blob/main/README.md#introduction)
-- [Preview](https://github.com/Derekdc30/FYP/blob/main/README.md#preview)
-- [Tasks](https://github.com/Derekdc30/FYP/blob/main/README.md#tasks)
-- [Notes](https://github.com/Derekdc30/FYP/blob/main/README.md#notes)
+- [Introduction](#introduction)
+- [Preview](#preview)
+- [Tasks](#tasks)
+- [Notes](#notes)
 ## Introduction
 This project is developed for Final Year Project. The aim is to create the immersive 2D Web-based mataverse. The game will be developed with Unity.
 ## Preview
