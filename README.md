@@ -1,10 +1,10 @@
 # FYP - 2D Web-Based Metaverse
 2D Web-Based Metaverse
-# Introduction
+## Introduction
 This project is developed for Final Year Project. The aim is to create the immersive 2D Web-based mataverse. The game will be developed with Unity.
-# Preview
+## Preview
 Now is not finished yet. There is no any preview pictures.
-# Tasks
+## Tasks
 - Voice, text chatting, support web camera 
   - [ ] Voice channel
   - [ ] Text channel
@@ -41,5 +41,5 @@ Now is not finished yet. There is no any preview pictures.
 - Game Logic
   - [ ] Interactable Object
   - [ ] Item System
-# Notes
+## Notes
 Thanks to 314pies for making [Parrelsync](https://github.com/VeriorPies/ParrelSync)
