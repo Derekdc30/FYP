@@ -5,10 +5,12 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Networking;
 using TMPro;
 
 public class Register : MonoBehaviour
 {
+    public GameObject emailInput;
     public GameObject usernameInput;
     public GameObject passwordInput;
     public GameObject Re_passwordInput;
@@ -18,19 +20,23 @@ public class Register : MonoBehaviour
     UserDatabase userDatabase;
     UserData userData;
 
+    [SerializeField] string registerURL = "localhost:3000/user/register";
+
     [System.Serializable]
     public class UserData{
         public string username;
         public string password;
+        public string email;
     }
 
-        [System.Serializable]
+    [System.Serializable]
     public class UserDatabase{
         public UserData[] users;
     }
     // Start is called before the first frame update
     void Start()
     {
+        //StartCoroutine(register("user02","user02@users.com","123456"));
         goToLoginButton.onClick.AddListener(moveTologin);
         registerButton.onClick.AddListener(register);
         userDatabase = JsonUtility.FromJson<UserDatabase>(jsonFile.text);
@@ -40,6 +46,7 @@ public class Register : MonoBehaviour
         SceneManager.LoadScene("LoginScene");
     }
     void register(){
+        string email = emailInput.GetComponent<TMP_InputField>().text;
         string username = usernameInput.GetComponent<TMP_InputField>().text;
         string password = passwordInput.GetComponent<TMP_InputField>().text;
         string re_password = Re_passwordInput.GetComponent<TMP_InputField>().text;
@@ -52,17 +59,7 @@ public class Register : MonoBehaviour
             }
             else{
                 if(password == re_password){
-                    Debug.Log("Register success"); //action on successfully register
-                    UserData newUser = new UserData
-                    {
-                        username = username,
-                        password = password
-                    };
-                    Array.Resize(ref userDatabase.users, userDatabase.users.Length + 1);
-                    userDatabase.users[userDatabase.users.Length - 1] = newUser;
-
-                    // Save the updated user database to the JSON file
-                    SaveUserDatabaseToJson();
+                    StartCoroutine(register(username,email,password));
                 }
                 else{
                     Debug.Log("password not match"); //action on password not match
@@ -87,4 +84,22 @@ public class Register : MonoBehaviour
         string updatedJsonData = JsonUtility.ToJson(userDatabase);
         File.WriteAllText(jsonPath, updatedJsonData);
     }
+    IEnumerator register (string name, string email, string password){
+    WWWForm form = new WWWForm();
+    form.AddField("name", name);
+    form.AddField("email", email);
+    form.AddField("password", password);
+
+    using (UnityWebRequest www = UnityWebRequest.Post(registerURL, form)){
+        yield return www.SendWebRequest();
+        if(www.result == UnityWebRequest.Result.ConnectionError){
+            Debug.Log(www.error);
+        }
+        else{
+            Debug.Log(www.downloadHandler.text);
+            moveTologin();
+        }
+    }
 }
+}
+
